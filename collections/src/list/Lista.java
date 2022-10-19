@@ -1,22 +1,26 @@
 package list;
 
 import java.util.*;
+import list.comparator.ComparatorAltura;
+import list.comparator.ComparatorNomeAlturaPeso;
 
 public class Lista {
     public static void main(String[] args) {
         //Forma mais comum de criar uma Lista:
-        List<Pessoa> listaPessoas1 = new ArrayList<>();
-        listaPessoas1.add(new Pessoa("Eduardo", 63, 166));
-        listaPessoas1.add(new Pessoa("Gabriel", 70, 168));
-        listaPessoas1.add(new Pessoa("Joana", 56, 160));
-        listaPessoas1.add(new Pessoa("Helena", 78, 189));
+        List<Pessoa> listaPessoas1 = new ArrayList<>() {{
+            add(new Pessoa("Eduardo", 63, 166));
+            add(new Pessoa("Gabriel", 70, 168));
+            add(new Pessoa("Joana", 56, 160));
+            add(new Pessoa("Helena", 78, 189));
+        }};
+
 
         //Uma forma de criar uma lista passando os objetos como argumentos:
         List<Pessoa> listaPessoas2 = new ArrayList<>(Arrays.asList(
                 new Pessoa("Maria", 65, 170),
                 new Pessoa("Jonh", 80, 178),
                 new Pessoa("Carlos", 89, 199),
-                new Pessoa("Erika", 78, 175)
+                new Pessoa("Maria", 102, 200)
         ));
 
         // Uma forma limitada, pois torna a lista imutável, portanto não pode remover
@@ -68,7 +72,7 @@ public class Lista {
         System.out.println("Soma de todos os pesos: " + soma);
 
         //size() retorna o número de elementos da lista
-        System.out.printf("Média dos pesos: %.2f KG%n%n", soma/pesos.size());
+        System.out.printf("Média dos pesos: %.2f KG%n%n", soma / pesos.size());
 
         //Remove remove um elemnto da lista pode ser passados como argumentos tanto posição quanto o objeto
         listaPessoas1.remove(listaPessoas1.size() - 1);
@@ -78,7 +82,28 @@ public class Lista {
         listaPessoas1.clear();
         System.out.println(listaPessoas1);
 
-        System.out.println("Confirir se a listaPessoas1 está vazia: " + listaPessoas1.isEmpty());
+        System.out.println("Confirir se a listaPessoas1 está vazia: " + listaPessoas1.isEmpty() +"\n\n");
+
+        System.out.println("Em baralhar a listaPessoas2: ");
+        System.out.println("listaPessoas2 original: " + listaPessoas2);
+        Collections.shuffle(listaPessoas2);
+        System.out.println("listaPessoas2 embaralhada: " + listaPessoas2 + "\n\n");
+
+        System.out.println("Ordernar a lista listaPessoas2 pelo nome:");
+        // Atenção para utilizar o método sort tem que se implementado o metodo compareTo
+        Collections.sort(listaPessoas2);
+        System.out.println(listaPessoas2 + "\n\n");
+
+        System.out.println("Ordernar a lista listaPessoas2 apartir da altura: ");
+        //Collections.sort(listaPessoas2, new ComparatorAltura());
+        listaPessoas2.sort(new ComparatorAltura());
+        System.out.println(listaPessoas2 + "\n\n");
+
+        System.out.println("Ordernar a lista listaPessoas2 apartir ddo Nome, Altura e Peso: ");
+        //Collections.sort(listaPessoas2, new ComparatorAltura());
+        listaPessoas2.sort(new ComparatorNomeAlturaPeso());
+        System.out.println(listaPessoas2);
+
     }
 }
 

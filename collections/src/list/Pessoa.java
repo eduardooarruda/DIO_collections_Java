@@ -2,10 +2,10 @@ package list;
 
 import java.util.Objects;
 
-public class Pessoa {
+public class Pessoa implements Comparable<Pessoa> {
     private String nome;
-    private double Peso;
-    private double altura;
+    private Double Peso;
+    private Double altura;
 
     public Pessoa(String nome, double peso, double altura) {
         this.nome = nome;
@@ -53,10 +53,22 @@ public class Pessoa {
 
     @Override
     public String toString() {
-        return "Pessoa{" +
+        return "{" +
                 "nome='" + nome + '\'' +
                 ", Peso=" + Peso +
                 ", altura=" + altura +
                 '}';
+    }
+
+    /*
+    Se o resultado for:
+    0 -> os nomes são iguais
+    1 -> o nome que é passado como parametro é maior
+    -1 -> o nome que é passado como parametro é menor
+     */
+
+    @Override
+    public int compareTo(Pessoa o) {
+        return this.nome.compareToIgnoreCase(o.nome);
     }
 }
