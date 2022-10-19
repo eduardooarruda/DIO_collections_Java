@@ -1,0 +1,15 @@
+java.util.List:
+   - Permite elementos duplicados.
+   - Garante ordem de inserção.
+
+VECTOR implementa List:
+   - Threads
+
+" ARRAYLIST deve ser usado onde mais operações de pesquisa são necessários e o
+LINKEDLIST deve ser usado onde mais operações de inserção e exclusão são necessárias. "
+
+ARRAYLIST implementa List:
+   - Utiliza um ARRAY para guardar os elementos.
+
+LINKEDLIST implementa List e Queue:
+   - Utiliza uma lista duplamente encadeada para guardar os elementos.
