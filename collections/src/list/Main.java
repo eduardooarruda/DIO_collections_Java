@@ -4,7 +4,7 @@ import java.util.*;
 import list.comparator.ComparatorAltura;
 import list.comparator.ComparatorNomeAlturaPeso;
 
-public class Lista {
+public class Main {
     public static void main(String[] args) {
         //Forma mais comum de criar uma Lista:
         List<Pessoa> listaPessoas1 = new ArrayList<>() {{

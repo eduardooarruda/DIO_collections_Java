@@ -1,0 +1,16 @@
+java.util.Set:
+    - Não permite elementos duplicados.
+    - Não possui índice.
+
+hashset:
+    - Nâo mantém as ordens dos elementos.
+    - Tem a melhor performance
+    - Permite no máximo um elemento null.
+
+linkHashSet:
+    - Mantém a ordem de inserção
+    - Permite no máximo um elemento null.
+
+treeSet:
+    - Ordena os itens quando inseridos, por exemplo ordena em ordem crescente ou decrescente
+    - Não permite elementos null.

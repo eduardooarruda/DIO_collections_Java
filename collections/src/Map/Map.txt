@@ -1,0 +1,21 @@
+java.util.Map
+    - Element únicos (key) para cada valor (value).
+    - É um objeto que armazerna vários objetos ou váriaveis primitivas.
+    - chaves com valores únicos e os valores podem ser repetidos.
+
+Hashtable:
+
+HashMap:
+    - Tem a mesma perfomace do LinkedHashMap.
+    - Armazerna aleatoriamente.
+    - permite chaves nulas.
+
+LinkedHashMap:
+    - Armazerna de acordo com a ordem de inseção.
+    - permite chaves nulas.
+
+TreeMap:
+    - Demora mais um pouco que o HasMap e o LinkedHashMap.
+    - Armazerna ordenado de acordo as chaves.
+    - Não permite chaves nulas;
+    - Utiliza árvore.
