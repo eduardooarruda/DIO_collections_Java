@@ -1,6 +1,8 @@
-package Map;
+package map;
 
-import java.sql.SQLOutput;
+import map.comparator.ComparatorNomeLinguagem;
+import map.comparator.ComparetorAnoCriacao;
+
 import java.util.*;
 
 public class Main {
@@ -84,6 +86,33 @@ public class Main {
         linguagens.clear();
         System.out.println("Apagar todo o Map linguagens: " + linguagens);
 
-        System.out.println("Confirir se o Map linguagens está vazio: " + linguagens.isEmpty());
+        System.out.println("Confirir se o Map linguagens está vazio: " + linguagens.isEmpty() + "\n");
+
+        Map<String, LinguagemProgramacao> linguagens4 = new TreeMap<>(){{
+           put("Rasmus Lerdorf", new LinguagemProgramacao("PHP", 1995));
+           put("Lars Bak", new LinguagemProgramacao("Dart", 2011));
+           put("Bjarne Stroustrup", new LinguagemProgramacao("C++", 1979));
+           put("Martin Odersky", new LinguagemProgramacao("Scala", 2004));
+        }};
+
+        System.out.println("MAP Linguagens de programação 4 em ordem alfabética do autor: ");
+        for(Map.Entry<String, LinguagemProgramacao> l: linguagens4.entrySet() )
+            System.out.println(l.getKey() + ": " + l.getValue());
+
+        System.out.println("\nOrdernar pelo nome da linguagem de programação:");
+        Set<Map.Entry<String, LinguagemProgramacao>> linguagensSet = new TreeSet<>(new ComparatorNomeLinguagem());
+        linguagensSet.addAll(linguagens4.entrySet());
+
+        for(Map.Entry<String, LinguagemProgramacao> l : linguagensSet)
+            System.out.println(l.getKey() + ": " + l.getValue());
+
+        System.out.println("\nOrdernado pelo ano de criação:");
+        Set<Map.Entry<String, LinguagemProgramacao>> linguagensSetOrdernadoAno = new TreeSet<>(new ComparetorAnoCriacao());
+
+        linguagensSetOrdernadoAno.addAll(linguagens4.entrySet());
+        for(Map.Entry<String, LinguagemProgramacao> l : linguagensSetOrdernadoAno)
+            System.out.println(l.getKey() + ": " + l.getValue());
+
+
     }
 }

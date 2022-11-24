@@ -1,4 +1,6 @@
-package Map;
+package map;
+
+import java.util.Objects;
 
 public class LinguagemProgramacao {
     private String nome;
@@ -31,5 +33,18 @@ public class LinguagemProgramacao {
                 "nome='" + nome + '\'' +
                 ", anoCriacao=" + anoCriacao +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        LinguagemProgramacao that = (LinguagemProgramacao) o;
+        return nome.equals(that.nome) && anoCriacao.equals(that.anoCriacao);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nome, anoCriacao);
     }
 }
